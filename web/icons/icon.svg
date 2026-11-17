@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a2511" />
+      <stop offset="100%" stop-color="#241208" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd56b" />
+      <stop offset="100%" stop-color="#e09f2b" />
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <rect width="512" height="512" rx="100" fill="url(#bg)" />
+  <circle cx="256" cy="256" r="230" fill="none" stroke="url(#gold)" stroke-width="8" opacity="0.4" />
+  
+  <!-- Steam -->
+  <path d="M210 140 Q225 110 210 80 Q195 50 210 20" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+  <path d="M256 130 Q275 100 256 70 Q235 40 256 10" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
+  <path d="M302 140 Q317 110 302 80 Q287 50 302 20" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Coffee Cup -->
+  <path d="M150 180 L180 340 Q190 380 256 380 Q322 380 332 340 L362 180 Z" fill="url(#gold)" />
+  <!-- Cup Handle -->
+  <path d="M350 210 Q420 220 410 290 Q400 340 335 325" fill="none" stroke="url(#gold)" stroke-width="26" stroke-linecap="round"/>
+  <!-- Cup Inner liquid -->
+  <ellipse cx="256" cy="185" rx="100" ry="25" fill="#2a140a" stroke="#ffd56b" stroke-width="5" />
+  
+  <!-- Saucer -->
+  <ellipse cx="256" cy="405" rx="150" ry="22" fill="url(#gold)" />
+  <ellipse cx="256" cy="405" rx="130" ry="14" fill="#3a1c0d" opacity="0.5" />
+
+  <!-- Arabic Title -->
+  <text x="256" y="470" font-family="system-ui, sans-serif" font-size="44" font-weight="bold" fill="#ffd56b" text-anchor="middle">مدير القهوة</text>
+</svg>

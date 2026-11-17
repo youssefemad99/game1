@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>مدير القهوة - لعبة محاكاة وإدارة قهوة مصرية</title>
+  
+  <!-- PWA & Mobile Web App Meta -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3d2114">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="مدير القهوة">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Three.js 3D Canvas -->
+  <div id="canvas-container"></div>
+
+  <!-- نقطة التصويب (Crosshair) -->
+  <div id="crosshair"></div>
+
+  <!-- الشريط العلوي (HUD) -->
+  <header id="hud-top">
+    <div class="hud-badge">
+      <span>☕</span>
+      <span>مدير القهوة (المرحلة 1)</span>
+    </div>
+    <div class="hud-actions">
+      <div class="hud-badge" id="fps-counter">30 FPS</div>
+      <button class="hud-btn" id="btn-fullscreen" title="ملء الشاشة">
+        <span id="fullscreen-icon">⛶</span>
+        <span>شاشة كاملة</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- شريط الإرشادات بالأسفل -->
+  <div id="instructions">
+    📱 <b>موبايل:</b> الجويستيك شمال للمشي، واليمين لتدوير الكاميرا | 💻 <b>كمبيوتر:</b> أزرار WASD والماوس
+  </div>
+
+  <!-- منطقة اللمس لتدوير الكاميرا في الجزء الأيمن -->
+  <div id="touch-look-zone"></div>
+
+  <!-- جويستيك الحركة الافتراضي على الشاشة -->
+  <div id="joystick-container">
+    <div id="joystick-base">
+      <div id="joystick-thumb"></div>
+    </div>
+  </div>
+
+  <!-- شاشة التنبيه للوضع الأفقي على الموبايل -->
+  <div id="rotate-warning">
+    <div class="icon">📱🔄</div>
+    <h2>اقلب الموبايل بالعرض</h2>
+    <p>لعبة "مدير القهوة" مصممة للعب بالوضع الأفقي (Landscape) لتجربة ممتعة وتحكم أفضل.</p>
+  </div>
+
+  <!-- تحميل مكتبة Three.js محلياً بدون إنترنت -->
+  <script src="vendor/three.min.js"></script>
+
+  <!-- سكريبتات منطق اللعبة (نفس منطق Unity تماماً) -->
+  <script src="js/joystick.js"></script>
+  <script src="js/camera-controller.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/cafe-scene.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- تسجيل الـ Service Worker لتثبيت PWA والعمل أوفلاين -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then((reg) => console.log('Service Worker تم تسجيله بنجاح:', reg.scope))
+          .catch((err) => console.log('فشل تسجيل Service Worker:', err));
+      });
+    }
+  </script>
+</body>
+</html>
